@@ -10,7 +10,7 @@ const Navbar = () => {
     return (
         <div className='container mx-auto flex justify-between items-center mt-10 p-4 md:p-0'>
             {/* logo & text */}
-            <div className='flex items-center'>
+            <div className='flex items-center navbar-start'>
                 
                 <div className="dropdown">
                 <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
