@@ -35,7 +35,8 @@ const Navbar = () => {
                 <NavLink to="/tips">My Tips</NavLink>
             </div>
             {/* login button */}
-            <div>
+            <div className='flex gap-4'>
+                <img className='w-10' src="/assets/user.png" alt="" />
                 <Link to="/login"><button className='btn bg-green-500 rounded-xl px-6 text-white'>Login</button></Link>
             </div>
             
