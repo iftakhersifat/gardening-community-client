@@ -1,0 +1,72 @@
+[
+  {
+    "id": 1,
+    "name": "Lily Green",
+    "location": "Austin, TX",
+    "status": "active",
+    "avatar": "/assets/g1.jpg"
+  },
+  {
+    "id": 2,
+    "name": "Tom Moss",
+    "location": "Portland, OR",
+    "status": "active",
+    "avatar": "/assets/g2.jpg"
+  },
+  {
+    "id": 3,
+    "name": "Sage Bloom",
+    "location": "Denver, CO",
+    "status": "inactive",
+    "avatar": "/assets/g3.jpg"
+  },
+  {
+    "id": 4,
+    "name": "Rose Leaf",
+    "location": "San Diego, CA",
+    "status": "active",
+    "avatar": "/assets/g4.jpg"
+  },
+  {
+    "id": 5,
+    "name": "Ivy Sprout",
+    "location": "Seattle, WA",
+    "status": "inactive",
+    "avatar": "/assets/g5.jpg"
+  },
+  {
+    "id": 6,
+    "name": "Fern Root",
+    "location": "Boston, MA",
+    "status": "active",
+    "avatar": "/assets/g6.jpg"
+  },
+  {
+    "id": 7,
+    "name": "Willow Shade",
+    "location": "Miami, FL",
+    "status": "inactive",
+    "avatar": "/assets/g7.jpg"
+  },
+  {
+    "id": 8,
+    "name": "Daisy Thorn",
+    "location": "Phoenix, AZ",
+    "status": "active",
+    "avatar": "/assets/g8.jpg"
+  },
+  {
+    "id": 9,
+    "name": "Basil Vine",
+    "location": "Chicago, IL",
+    "status": "inactive",
+    "avatar": "/assets/g9.jpg"
+  },
+  {
+    "id": 10,
+    "name": "Cedar Grove",
+    "location": "Atlanta, GA",
+    "status": "active",
+    "avatar": "/assets/g10.jpg"
+  }
+]
