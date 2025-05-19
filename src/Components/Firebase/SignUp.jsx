@@ -1,22 +1,34 @@
 import React, { use } from 'react';
-import { Link } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 import { AuthContext } from './AuthProvider';
 
 const SignUp = () => {
-    const {createUser} = use(AuthContext)
+    const navigate=useNavigate()
+    const {createUser, UpdateUser, setUser} = use(AuthContext)
     const handleSignup=e=>{
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
-        const {email, password, ...userDetails} = Object.fromEntries(formData.entries());
-        console.log(email, password, userDetails);
+        const {email, password, photo, fullName} = Object.fromEntries(formData.entries());
+        console.log(email, password, fullName, photo);
 
         // firebase
         createUser(email, password)
-        .then((result)=>{
-            console.log(result.user)
-        }).then(error=>{
-            console.log(error)
+        .then(result=>{
+          const user = result.user;
+          UpdateUser({displayName: fullName, photoURL: photo})
+          .then(()=>{
+            setUser({...user, displayName: fullName, photoURL: photo});
+            console.log("Account created successfully!");
+          })
+          .catch(() => {
+            console.log("Profile update failed.");
+            setUser(user);
+          });
+           navigate("/")
+        })
+        .catch(error=>{
+          console.log(error.message);
         })
     }
     return (
@@ -27,7 +39,7 @@ const SignUp = () => {
         <form onSubmit={handleSignup} className="fieldset">
 
           <label className="label">Name</label>
-          <input type="text" className="input w-full" name='name' placeholder="Enter your name" />
+          <input type="text" className="input w-full" name='fullName' placeholder="Enter your name" />
 
           <label className="label">Email</label>
           <input type="email" className="input w-full" name='email' placeholder="Email" />
