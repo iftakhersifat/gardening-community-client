@@ -13,7 +13,7 @@ const FeaturedGardeners = () => {
     console.log(gardeners)
     return (
         <div>
-            <h1>Active gardeners : {gardeners.length}</h1>
+            <h1 className='text-2xl text-center font-bold mt-10 text-green-500'>Active Gardeners</h1>
             <div className='grid grid-cols-2 md:grid-cols-3 gap-4 p-4 md:p-0'>
                 {
                     gardeners.map(g=>
