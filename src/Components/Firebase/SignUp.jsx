@@ -12,7 +12,7 @@ const SignUp = () => {
     return (
         <div className="hero  min-h-screen">
         <div className="hero-content flex-col lg:flex-row-reverse">
-        <div className="card md:w-[500px] shrink-0 shadow-2xl">
+        <div className="card md:w-[500px] w-[350px] border border-green-200 bg-gray-200 shrink-0 shadow-md">
         <div className="card-body">
         <form onSubmit={handleSignup} className="fieldset">
 
@@ -28,8 +28,8 @@ const SignUp = () => {
           <label className="label">Password</label>
           <input type="password" className="input w-full" name='password' placeholder="Password" />
 
-          <button className="btn btn-neutral mt-4">Sign Up</button>
-          <Link to="/signin">Do you have an account? <span className='text-red-500 underline'>Sign In</span></Link>
+          <button className="btn bg-green-500 text-white mt-4">Sign Up</button>
+          <Link to="/login">Do you have an account? <span className='text-red-500 underline'>Login</span></Link>
 
         </form>
       </div>

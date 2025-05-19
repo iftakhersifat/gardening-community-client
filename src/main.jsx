@@ -11,7 +11,8 @@ import Home from './Components/Home/Home.jsx';
 import NotFound from './Components/NotFound/NotFound.jsx';
 import AuthProvider from './Components/Firebase/AuthProvider.jsx';
 import SignUp from './Components/Firebase/SignUp.jsx';
-import SignIn from './Components/Firebase/SignIn.jsx';
+import SignIn from './Components/Firebase/Login.jsx';
+import Login from './Components/Firebase/Login.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,7 +20,7 @@ const router = createBrowserRouter([
     children: [
       {index: true, Component:Home},
       {path: "signup", Component: SignUp},
-      {path: "signin", Component: SignIn},
+      {path: "login", Component: Login},
     ]
   },
   {
