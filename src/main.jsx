@@ -6,10 +6,15 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router";
+import Root from './Components/Root/Root.jsx';
+import Home from './Components/Home/Home.jsx';
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <div>Hello World</div>,
+    Component: Root,
+    children: [
+      {index: true, Component:Home},
+    ]
   },
 ]);
 
