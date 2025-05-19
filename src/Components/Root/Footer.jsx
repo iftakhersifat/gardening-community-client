@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 const Footer = () => {
     return (
@@ -7,8 +8,8 @@ const Footer = () => {
   <nav>
     <h6 className="footer-title">Contact Us</h6>
     <div>
-      <p>Email: <a href="mailto:support@gardengrow.com" class="text-green-700 hover:underline">support@gardengrow.com</a></p>
-      <p>Phone: <a href="tel:+1234567890" class="text-green-700 hover:underline">+1 234 567 890</a></p>
+      <p>Email: <Link to="" className="text-green-700 hover:underline">support@gardengrow.com</Link></p>
+      <p>Phone: <Link to="" className="text-green-700 hover:underline">+1 234 567 890</Link></p>
       <p>Address: 123 Green Lane, Bloomtown, Earth</p>
     </div>
   </nav>
@@ -58,7 +59,7 @@ const Footer = () => {
     </div>
   </nav>
 </footer>
-<div class="text-center text-sm text-green-700 p-4">
+<div className="text-center text-sm text-green-700 p-4">
     &copy; 2025 Gardening Community & Resource Hub. All rights reserved.
   </div>
         </div>
