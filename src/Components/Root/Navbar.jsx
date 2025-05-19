@@ -27,7 +27,7 @@ const Navbar = () => {
                 </ul>
                 </div>
 
-                <img className='w-28' src="/assets/logo.png" alt="" />
+                <img className='w-28 -ml-9' src="/assets/logo.png" alt="" />
                 <h1 className='lg:text-2xl md:text-[16px] font-bold -ml-6 md:block hidden'>Gardening Community & Resource Hub</h1>
             </div>
             {/* links */}

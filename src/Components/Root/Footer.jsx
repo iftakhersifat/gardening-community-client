@@ -4,8 +4,8 @@ import { Link } from 'react-router';
 const Footer = () => {
     return (
         <div className='bg-green-100'>
-            <footer className="md:flex md:justify-between container mx-auto sm:footer-horizontal  p-10">
-  <div>
+            <footer className="md:flex md:justify-between container mx-auto sm:footer-horizontal  p-10 md:p-0">
+  <div className='mt-10'>
     <h6 className="footer-title">Contact Us</h6>
     <div>
       <p>Email: <Link to="" className="text-green-700 hover:underline">support@gardengrow.com</Link></p>
@@ -14,7 +14,7 @@ const Footer = () => {
     </div>
   </div>
 
-  <div className='flex flex-col'>
+  <div className='flex flex-col mt-10'>
     <h6 className="footer-title">Company</h6>
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
@@ -23,7 +23,7 @@ const Footer = () => {
   </div>
 
   <div>
-    <h6 className="footer-title">Social</h6>
+    <h6 className="footer-title mt-10">Social</h6>
     <div className="flex  gap-4">
       <a>
         <svg
