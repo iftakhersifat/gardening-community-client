@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from './AuthProvider';
 
 const SignUp = () => {
+    const {createUser} = use(AuthContext)
     const handleSignup=e=>{
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const {email, password, ...userDetails} = Object.fromEntries(formData.entries());
         console.log(email, password, userDetails);
+
+        // firebase
+        createUser(email, password)
+        .then((result)=>{
+            console.log(result.user)
+        }).then(error=>{
+            console.log(error)
+        })
     }
     return (
         <div className="hero  min-h-screen">
