@@ -14,7 +14,7 @@ const FeaturedGardeners = () => {
     return (
         <div>
             <h1>Active gardeners : {gardeners.length}</h1>
-            <div className='grid grid-cols-3 gap-4'>
+            <div className='grid grid-cols-2 md:grid-cols-3 gap-4 p-4 md:p-0'>
                 {
                     gardeners.map(g=>
                     <div key={g.id} className="bg-gray-100 border border-green-100 mt-10 shadow-md rounded-2xl p-4 text-center">
