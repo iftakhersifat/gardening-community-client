@@ -5,22 +5,24 @@ const Footer = () => {
     return (
         <div className='bg-green-100'>
             <footer className="md:flex md:justify-between container mx-auto sm:footer-horizontal  p-10">
-  <nav>
+  <div>
     <h6 className="footer-title">Contact Us</h6>
     <div>
       <p>Email: <Link to="" className="text-green-700 hover:underline">support@gardengrow.com</Link></p>
       <p>Phone: <Link to="" className="text-green-700 hover:underline">+1 234 567 890</Link></p>
       <p>Address: 123 Green Lane, Bloomtown, Earth</p>
     </div>
-  </nav>
-  <nav className='flex flex-col'>
+  </div>
+
+  <div className='flex flex-col'>
     <h6 className="footer-title">Company</h6>
     <a className="link link-hover">About us</a>
     <a className="link link-hover">Contact</a>
     <a className="link link-hover">Jobs</a>
     <a className="link link-hover">Press kit</a>
-  </nav>
-  <nav>
+  </div>
+
+  <div>
     <h6 className="footer-title">Social</h6>
     <div className="flex  gap-4">
       <a>
@@ -57,7 +59,7 @@ const Footer = () => {
         </svg>
       </a>
     </div>
-  </nav>
+  </div>
 </footer>
 <div className="text-center text-sm text-green-700 p-4">
     &copy; 2025 Gardening Community & Resource Hub. All rights reserved.

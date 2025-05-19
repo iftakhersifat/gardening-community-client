@@ -7,12 +7,12 @@ import 'swiper/css/pagination';
 const slides = [
   {
     message: 'Grow Together',
-    image: '/assets/g5.webp',
+    image: '/assets/g3.jpg',
     buttonText: 'Join Now',
   },
   {
     message: 'Urban Gardening Made Simple',
-    image: '/assets/g6.jpg',
+    image: '/assets/g1.jpg',
     buttonText: 'Learn More',
   },
   {
@@ -35,14 +35,14 @@ export default function BannerSlider() {
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="flex flex-col items-center justify-center text-center text-white h-full px-4"
+              className="flex flex-col items-center rounded-xl justify-center text-center text-white h-full px-4"
               style={{
                 backgroundImage: `url(${slide.image})`,
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
               }}
             >
-              <div className=" bg-opacity-50 p-6 rounded-lg">
+              <div className="p-6 rounded-lg">
                 <h2 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow">
                   {slide.message}
                 </h2>
