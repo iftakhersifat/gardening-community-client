@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { use } from 'react';
 import { Link } from 'react-router';
+import { AuthContext } from './AuthProvider';
 
 const Login = () => {
+  const {LogIn} = use(AuthContext)
     const handleSignin =e=>{
         e.preventDefault();
         const email =e.target.email.value;
         const password =e.target.password.value;
         console.log(email, password)
+
+        // firebase
+        LogIn(email, password)
+        .then(result=>{
+          console.log(result.user)
+        }).then(error=>{
+          console.log("Login Successfully", error)
+        })
     }
     return (
         <div className="hero  min-h-screen">
