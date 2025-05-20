@@ -11,8 +11,8 @@ import Home from './Components/Home/Home.jsx';
 import NotFound from './Components/NotFound/NotFound.jsx';
 import AuthProvider from './Components/Firebase/AuthProvider.jsx';
 import SignUp from './Components/Firebase/SignUp.jsx';
-import SignIn from './Components/Firebase/Login.jsx';
 import Login from './Components/Firebase/Login.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -32,7 +32,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>,
 )
