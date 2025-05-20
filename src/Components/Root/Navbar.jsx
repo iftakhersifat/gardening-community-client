@@ -42,12 +42,14 @@ const Navbar = () => {
                 <NavLink to="/explore" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Explore Gardeners</NavLink>
 
                 {/* private */}
-                <NavLink to="/share" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Share a Garden Tip</NavLink>
-                <NavLink to="/tips" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>My Tips</NavLink>
+                {
+                    user && <><NavLink to="/share" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Share a Garden Tip</NavLink>
+                <NavLink to="/tips" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>My Tips</NavLink></>
+                }
             </div>
             {/* login button */}
             <div className='flex gap-4'>
-                <Switcher></Switcher>
+                {/* <Switcher></Switcher> */}
                 <img className='w-10 rounded-full' src={user ? user.photoURL: "/assets/user.png"} alt="" />
                 {
                     user ? <button onClick={handleLogOut} className='btn bg-red-500 rounded-xl px-6 text-white'>LogOut</button> :<Link to="/login"><button className='btn bg-green-500 rounded-xl px-6 text-white'>Login</button></Link>
