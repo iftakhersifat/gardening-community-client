@@ -27,7 +27,7 @@ const events = [
 
 export default function GardeningEvents() {
   return (
-    <section className="py-14 bg-green-100 px-4 mt-10">
+    <section className="py-14 bg-green-100 rounded-xl px-4 mt-10">
       <div className="max-w-6xl mx-auto">
         <h2 className="text-3xl font-bold text-center mb-10 text-green-800">
           🌿 Join a Local Gardening Event
