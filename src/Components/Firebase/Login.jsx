@@ -2,6 +2,7 @@ import React, { use } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from './AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
+import toast from 'react-hot-toast';
 
 const Login = () => {
   const navigate =useNavigate()
@@ -16,21 +17,21 @@ const Login = () => {
         // firebase
         LogIn(email, password)
         .then(result=>{
-          console.log(result.user)
+          toast.success(result.user)
           navigate("/")
         }).then(error=>{
-          console.log("Login Successfully", error)
+          toast.error("Login Successfully", error)
         })
     }
 
     const handelGoogle =()=>{
       googleProvider(provider)
       .then(()=>{
-        console.log("Logged in with Google!");
+        toast.success("Logged in with Google!");
         navigate("/");
       })
       .catch(error=>{
-        console.log(error.message);
+        toast.error(error.message);
     })
     } 
     return (

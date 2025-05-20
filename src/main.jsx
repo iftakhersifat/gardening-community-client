@@ -12,6 +12,7 @@ import NotFound from './Components/NotFound/NotFound.jsx';
 import AuthProvider from './Components/Firebase/AuthProvider.jsx';
 import SignUp from './Components/Firebase/SignUp.jsx';
 import Login from './Components/Firebase/Login.jsx';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,7 @@ const router = createBrowserRouter([
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <AuthProvider>
+      <Toaster position="top-right" />
         <RouterProvider router={router} />
     </AuthProvider>
   </StrictMode>,

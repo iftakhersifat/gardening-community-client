@@ -2,13 +2,15 @@ import React, { use } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Firebase/AuthProvider';
 import Switcher from '../Switcher';
+import toast from 'react-hot-toast';
 
 const Navbar = () => {
     const {user, logOut} =use(AuthContext);
     const handleLogOut=()=>{
         logOut()
-        .then(()=>{console.log("Logout successfully!")})
-        .catch(error=>console.log(error))
+        .then(()=>{toast.success("Logout successfully!")})
+        .catch(error=>{
+            toast.error(error)})
     }
     
     return (
