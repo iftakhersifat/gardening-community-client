@@ -40,11 +40,12 @@ const Navbar = () => {
             <div className='space-x-4 lg:block hidden'>
                 <NavLink to="/" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Home</NavLink>
                 <NavLink to="/explore" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Explore Gardeners</NavLink>
+                <NavLink to="/browse" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Browse Tips</NavLink>
 
                 {/* private */}
                 {
                     user && <><NavLink to="/share" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Share a Garden Tip</NavLink>
-                <NavLink to="/tips" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>My Tips</NavLink></>
+                <NavLink to="/my-tips" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>My Tips</NavLink></>
                 }
             </div>
             {/* login button */}

@@ -13,6 +13,9 @@ import AuthProvider from './Components/Firebase/AuthProvider.jsx';
 import SignUp from './Components/Firebase/SignUp.jsx';
 import Login from './Components/Firebase/Login.jsx';
 import { Toaster } from 'react-hot-toast';
+import ShareTip from './Components/Private/ShareTip.jsx';
+import MyTips from './Components/Private/MyTips.jsx';
+import BrowseTips from './Components/Private/BrowseTips.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,6 +25,10 @@ const router = createBrowserRouter([
       {index: true, Component:Home},
       {path: "signup", Component: SignUp},
       {path: "login", Component: Login},
+      {path: "share", Component: ShareTip},
+      {path: "browse", Component: BrowseTips},
+      {path: "my-tips", Component: MyTips},
+      
     ]
   },
   {
