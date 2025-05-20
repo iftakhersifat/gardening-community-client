@@ -16,6 +16,7 @@ import { Toaster } from 'react-hot-toast';
 import ShareTip from './Components/Private/ShareTip.jsx';
 import MyTips from './Components/Private/MyTips.jsx';
 import BrowseTips from './Components/Private/BrowseTips.jsx';
+import TipDetails from './Components/Private/TipDetails.jsx';
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,8 @@ const router = createBrowserRouter([
       {path: "share", Component: ShareTip},
       {path: "browse", Component: BrowseTips},
       {path: "my-tips", Component: MyTips},
+      {path: "tip-details/:id",
+       Component: TipDetails},
       
     ]
   },

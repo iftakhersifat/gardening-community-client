@@ -31,7 +31,7 @@ const BrowseTips = () => {
                 <img src={tip.imageUrl} alt={tip.title} className="w-16 h-16 object-cover rounded" />
               </td>
               <td className="border p-2 text-center">
-                <Link to={`/tip/${tip._id}`}>
+                <Link to={`/tip-details/${tip._id}`}>
                   <button className="text-blue-600 hover:text-blue-800">👁️ See More</button>
                 </Link>
               </td>
