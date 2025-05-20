@@ -32,8 +32,10 @@ const MyTips = () => {
           .then(data => {
             if (data.deletedCount > 0) {
               Swal.fire('Deleted!', 'Your tip has been deleted.', 'success');
-              setTips(tips.filter(tip => tip._id !== id));
             }
+            // remove the coffee from the state
+            const remainingUsers = tips.filter(user => user._id !== id)
+                setTips(remainingUsers)
           });
       }
     });
