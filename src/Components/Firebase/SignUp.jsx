@@ -1,4 +1,4 @@
-import React, { use } from 'react';
+import React, { use, useState } from 'react';
 import { Link, useNavigate } from 'react-router';
 import { AuthContext } from './AuthProvider';
 import { GoogleAuthProvider } from 'firebase/auth';
@@ -7,12 +7,22 @@ const SignUp = () => {
     const navigate=useNavigate()
     const {createUser, UpdateUser, setUser, googleProvider} = use(AuthContext)
     const provider = new GoogleAuthProvider();
+
+    // check password
+  const checkPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+
+  const [error, setError]= useState('');
     const handleSignup=e=>{
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const {email, password, photo, fullName} = Object.fromEntries(formData.entries());
         console.log(email, password, fullName, photo);
+
+        if(checkPassword.test(password) != true){
+          setError("Must have an Uppercase letter in the password. Must have a Lowercase letter in the password. Length must be at least 6 character");
+          return;
+        } 
 
         // firebase
         createUser(email, password)
@@ -64,6 +74,10 @@ const SignUp = () => {
 
           <label className="label">Password</label>
           <input type="password" className="input w-full" name='password' placeholder="Password" />
+
+          {
+            error && <p className='text-red-500'>{error}</p>
+          }
 
           <button className="btn bg-green-500 text-white mt-4">Sign Up</button>
           {/* Google */}
