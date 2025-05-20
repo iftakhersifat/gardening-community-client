@@ -18,6 +18,7 @@ import MyTips from './Components/Private/MyTips.jsx';
 import BrowseTips from './Components/Private/BrowseTips.jsx';
 import TipDetails from './Components/Private/TipDetails.jsx';
 import UpdateTip from './Components/Private/UpdateTip.jsx';
+import Explore from './Components/Root/Explore.jsx';
 
 const router = createBrowserRouter([
   {
@@ -33,8 +34,13 @@ const router = createBrowserRouter([
       {path: "tip-details/:id",
        Component: TipDetails},
       {path: "update-tip/:id",
-  loader: ({ params }) => fetch(`http://localhost:3000/garden-tips/public/${params.id}`),
+        loader: ({ params }) => fetch(`http://localhost:3000/garden-tips/public/${params.id}`),
        Component: UpdateTip},
+
+       {
+        path: "explore",
+        Component: Explore
+       },
        
       
     ]
