@@ -1,10 +1,19 @@
-import { useParams } from 'react-router';
-import { useEffect, useState } from 'react';
+import { useNavigate, useParams } from 'react-router';
+import { use, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
+import { AuthContext } from '../Firebase/AuthProvider';
 
 const TipDetails = () => {
+  const {user} = use(AuthContext)
+  const navigate = useNavigate();
   const { id } = useParams();
   const [tip, setTip] = useState(null);
+
+   useEffect(() => {
+    if (!user) {
+      navigate('/login');
+    }
+  }, [user, navigate]);
 
   useEffect(() => {
     fetch(`http://localhost:3000/garden-tips/public/${id}`)
@@ -43,7 +52,8 @@ const TipDetails = () => {
 
   return (
     <div className="container mx-auto px-4 py-12">
-      <div className="bg-white rounded-xl shadow-lg p-6 md:p-10 max-w-4xl mx-auto border border-green-100">
+      {
+        user ? <div className="bg-white rounded-xl shadow-lg p-6 md:p-10 max-w-4xl mx-auto border border-green-100">
         <h2 className="text-3xl font-bold text-green-700 text-center mb-6">{tip.title}</h2>
 
         <img
@@ -73,7 +83,9 @@ const TipDetails = () => {
             ❤️ Like ({tip.totalLiked || 0})
           </button>
         </div>
-      </div>
+      </div>: ""
+        
+      }
     </div>
   );
 };
