@@ -1,34 +1,46 @@
 import React, { useEffect, useState } from 'react';
+import { Zoom, Fade } from 'react-awesome-reveal';
 
 const FeaturedGardeners = () => {
-    const [gardeners, setGardeners] = useState([]);
-    useEffect(()=>{
-        fetch("gardeners.json")
-        .then(res=>res.json())
-        .then(data=>{
-            const active = data.filter(g => g.status === 'active');
+  const [gardeners, setGardeners] = useState([]);
+
+  useEffect(() => {
+    fetch("gardeners.json")
+      .then(res => res.json())
+      .then(data => {
+        const active = data.filter(g => g.status === 'active');
         setGardeners(active);
-        })
-    },[])
-    console.log(gardeners)
-    return (
-        <div>
-            <h1 className='text-2xl text-center font-bold mt-10 text-green-500'>Active Gardeners</h1>
-            <div className='grid grid-cols-2 md:grid-cols-3 gap-4 p-4 md:p-0'>
-                {
-                    gardeners.map(g=>
-                    <div key={g.id} className="bg-gray-100 border border-green-100 mt-10 shadow-md rounded-2xl p-4 text-center">
-                    <img src={g.avatar} alt="" className="w-24 h-24 mx-auto rounded-full object-cover mb-4 border-4 border-green-500"/>
-                    <h3 className="text-xl font-semibold">{g.name}</h3>
-                    <p className="text-gray-500">{g.location}</p>
-                    <span className="inline-block mt-2 px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full">
-                    Active Gardener
-                    </span>
-                    </div>)
-                }
-            </div>
+      });
+  }, []);
+
+  return (
+    <div>
+      {/* Zoom-in animation for the heading */}
+      <Zoom triggerOnce={false} duration={2000}>
+        <h1 className='text-2xl text-center font-bold mt-10 text-green-500'>
+          Active Gardeners
+        </h1>
+      </Zoom>
+
+      {/* Fade animation for the cards */}
+      <Fade cascade damping={0.1} triggerOnce={false} duration={2000}>
+        <div className='grid grid-cols-2 md:grid-cols-3 gap-4 p-4 md:p-0'>
+          {
+            gardeners.map(g => (
+              <div key={g.id} className="bg-gray-100 border border-green-100 mt-10 shadow-md rounded-2xl p-4 text-center">
+                <img src={g.avatar} alt="" className="w-24 h-24 mx-auto rounded-full object-cover mb-4 border-4 border-green-500" />
+                <h3 className="text-xl font-semibold">{g.name}</h3>
+                <p className="text-gray-500">{g.location}</p>
+                <span className="inline-block mt-2 px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full">
+                  Active Gardener
+                </span>
+              </div>
+            ))
+          }
         </div>
-    );
+      </Fade>
+    </div>
+  );
 };
 
 export default FeaturedGardeners;
