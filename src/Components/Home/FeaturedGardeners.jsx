@@ -14,29 +14,39 @@ const FeaturedGardeners = () => {
   }, []);
 
   return (
-    <div>
-      {/* Zoom-in animation for the heading */}
-      <Zoom triggerOnce={false} duration={2000}>
-        <h1 className='text-2xl text-center font-bold mt-10 text-green-500'>
-          Active Gardeners
+    <div className="container mx-auto px-4 py-10">
+      {/* Section Heading */}
+      <Zoom triggerOnce={false} duration={1500}>
+        <h1 className="text-4xl font-bold text-center text-green-600 mb-6 tracking-tight">
+          🌿 Meet Our Active Gardeners
         </h1>
+        <p className="text-center text-gray-500 mb-10 max-w-xl mx-auto">
+          Explore the profiles of passionate gardeners actively contributing to our green community.
+        </p>
       </Zoom>
 
-      {/* Fade animation for the cards */}
-      <Fade cascade damping={0.1} triggerOnce={false} duration={2000}>
-        <div className='grid grid-cols-2 md:grid-cols-3 gap-4 p-4 md:p-0'>
-          {
-            gardeners.map(g => (
-              <div key={g.id} className="bg-gray-100 border border-green-100 mt-10 shadow-md rounded-2xl p-4 text-center">
-                <img src={g.avatar} alt="" className="w-24 h-24 mx-auto rounded-full object-cover mb-4 border-4 border-green-500" />
-                <h3 className="text-xl font-semibold">{g.name}</h3>
-                <p className="text-gray-500">{g.location}</p>
-                <span className="inline-block mt-2 px-3 py-1 text-xs bg-green-100 text-green-700 rounded-full">
-                  Active Gardener
-                </span>
-              </div>
-            ))
-          }
+      {/* Cards */}
+      <Fade cascade damping={0.1} triggerOnce={false} duration={1000}>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
+          {gardeners.map(g => (
+            <div
+              key={g.id}
+              className="bg-white dark:bg-gray-800 rounded-2xl shadow-md hover:shadow-xl transition-shadow duration-300 p-6 text-center border border-green-100"
+            >
+              <img
+                src={g.avatar}
+                alt={g.name}
+                className="w-24 h-24 mx-auto rounded-full object-cover border-4 border-green-500 mb-4"
+              />
+              <h3 className="text-xl font-semibold text-gray-800 dark:text-white mb-1">
+                {g.name}
+              </h3>
+              <p className="text-sm text-gray-500 dark:text-gray-300">{g.location}</p>
+              <span className="inline-block mt-3 px-4 py-1 text-xs font-medium bg-green-100 text-green-700 rounded-full shadow-sm">
+                Active Gardener
+              </span>
+            </div>
+          ))}
         </div>
       </Fade>
     </div>
