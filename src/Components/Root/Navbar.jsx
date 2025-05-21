@@ -3,6 +3,8 @@ import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../Firebase/AuthProvider';
 import toast from 'react-hot-toast';
 import ThemeToggle from '../ThemeToggle';
+import { Tooltip } from 'react-tooltip';
+import 'react-tooltip/dist/react-tooltip.css'; // Don't forget the CSS import
 
 const Navbar = () => {
     const {user, logOut} =use(AuthContext);
@@ -52,10 +54,31 @@ const Navbar = () => {
             <div className='flex gap-4'>
                 {/* <Switcher></Switcher> */}
                 <ThemeToggle></ThemeToggle>
-                <img className='w-10 rounded-full' src={user ? user.photoURL: "/assets/user.png"} alt="" />
-                {
-                    user ? <button onClick={handleLogOut} className='btn bg-red-500 rounded-xl px-6 text-white'>LogOut</button> :<Link to="/login"><button className='btn bg-green-500 rounded-xl px-6 text-white'>Login</button></Link>
-                }
+                {user ? (
+          <>
+            <img
+              src={user.photoURL || '/assets/user.png'}
+              alt={user.displayName || 'User'}
+              className='w-10 h-10 rounded-full cursor-pointer'
+              data-tooltip-id='user-tooltip'
+              data-tooltip-content={user.displayName || 'User'}
+              data-tooltip-place='bottom'
+            />
+            <Tooltip id='user-tooltip' />
+            <button
+              onClick={handleLogOut}
+              className='btn bg-red-500 rounded-xl px-6 text-white'
+            >
+              LogOut
+            </button>
+          </>
+        ) : (
+          <Link to='/login'>
+            <button className='btn bg-green-500 rounded-xl px-6 text-white'>
+              Login
+            </button>
+          </Link>
+        )}
             </div>
             
         </div>
