@@ -1,12 +1,11 @@
 import { useParams } from 'react-router';
-import { useEffect, useState} from 'react';
+import { useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 
 const TipDetails = () => {
   const { id } = useParams();
   const [tip, setTip] = useState(null);
 
-  // Fetch tip data
   useEffect(() => {
     fetch(`http://localhost:3000/garden-tips/public/${id}`)
       .then(res => res.json())
@@ -17,53 +16,63 @@ const TipDetails = () => {
   const handleLike = async () => {
     try {
       const res = await fetch(`http://localhost:3000/garden-tips/${id}/like`, {
-        method: "PATCH"
+        method: 'PATCH',
       });
       if (res.ok) {
-        const updated = await res.json();
-        setTip(prev => ({ ...prev, totalLiked: (prev.totalLiked || 0) + 1 }));
+        setTip(prev => ({
+          ...prev,
+          totalLiked: (prev.totalLiked || 0) + 1,
+        }));
+        toast.success('Thanks for the like! 🌿');
       } else {
-        toast.error("Failed to like the tip.");
+        toast.error('Failed to like the tip.');
       }
     } catch (err) {
       console.error(err);
-      toast.error("Error while liking the tip.");
+      toast.error('Error while liking the tip.');
     }
   };
 
-  if (!tip) return <p className="text-center py-10">Loading...</p>;
+  if (!tip) {
+    return (
+      <div className="flex justify-center items-center py-20">
+        <span className="loading loading-spinner loading-lg text-green-600"></span>
+      </div>
+    );
+  }
 
   return (
-    
-    
-    
-    <div className="p-4 md:p-0">
-      <div className="p-6 container mx-auto flex flex-col items-center bg-green-300 mt-10 mb-10 rounded-xl shadow-md">
-        <h2 className="text-3xl font-bold mb-4 text-center">{tip.title}</h2>
+    <div className="container mx-auto px-4 py-12">
+      <div className="bg-white rounded-xl shadow-lg p-6 md:p-10 max-w-4xl mx-auto border border-green-100">
+        <h2 className="text-3xl font-bold text-green-700 text-center mb-6">{tip.title}</h2>
 
         <img
           src={tip.imageUrl}
           alt={tip.title}
-          className="w-full max-w-md mb-4 rounded-xl object-cover"
+          className="w-full max-h-[400px] object-cover rounded-xl mb-6"
         />
 
-        
-          <p><strong>Plant Type/Topic:</strong> {tip.plantType}</p>
-          <p><strong>Difficulty:</strong> {tip.difficulty}</p>
-          <p><strong>Category:</strong> {tip.category}</p>
-          <p><strong>Availability:</strong> {tip.availability}</p>
-          <p><strong>Submitted by:</strong></p>
-          <p>{tip.userName} ({tip.userEmail})</p>
-          <p className="mt-4"><strong>Description:</strong></p>
-          <p>{tip.description}</p>
-      
+        <div className="space-y-2 text-gray-700">
+          <p><span className="font-semibold text-green-600">🌱 Plant Type/Topic:</span> {tip.plantType}</p>
+          <p><span className="font-semibold text-green-600">📊 Difficulty:</span> {tip.difficulty}</p>
+          <p><span className="font-semibold text-green-600">📁 Category:</span> {tip.category}</p>
+          <p><span className="font-semibold text-green-600">🌐 Availability:</span> {tip.availability}</p>
+          <p><span className="font-semibold text-green-600">👤 Submitted by:</span> {tip.userName} ({tip.userEmail})</p>
+        </div>
 
-        <button
-          onClick={handleLike}
-          className="mt-6 px-4 py-2 bg-white text-red-600 font-semibold border rounded hover:bg-red-50"
-        >
-          ❤️ Like ({tip.totalLiked || 0})
-        </button>
+        <div className="mt-6">
+          <h3 className="text-xl font-semibold mb-2 text-gray-800">📝 Description:</h3>
+          <p className="text-gray-600">{tip.description}</p>
+        </div>
+
+        <div className="text-center mt-8">
+          <button
+            onClick={handleLike}
+            className="px-6 py-2 bg-red-100 hover:bg-red-200 text-red-600 font-medium rounded-full shadow-sm transition duration-200"
+          >
+            ❤️ Like ({tip.totalLiked || 0})
+          </button>
+        </div>
       </div>
     </div>
   );
