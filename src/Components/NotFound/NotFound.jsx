@@ -5,14 +5,31 @@ import Footer from '../Root/Footer';
 
 const NotFound = () => {
     const navigate =useNavigate();
-    const handle=()=>{
+    const handleBackHome=()=>{
         navigate("/")
     }
     return (
         <div>
             <Navbar></Navbar>
-            <button onClick={handle} className='p-2 ml-40 md:ml-60 text-white mx-auto mt-10 bg-green-500 rounded-xl'>Back to Home</button>
-            <img className='text-center lg:ml-[550px]' src="/assets/404.gif" alt="" />
+            
+            <div className='container mx-auto'>
+            <img className='text-center lg:ml-[300px]' src="/assets/404.gif" alt="" />
+            
+            <div className='flex flex-col justify-center items-center'>
+            <p className="text-xl md:text-2xl text-center text-green-900 mb-6 max-w-md">
+            Oops! The page you are looking for doesn’t exist or has been moved.
+            </p>
+            <button
+              onClick={handleBackHome}
+              className="px-6 py-3 bg-green-600 hover:bg-green-700 focus:ring-4 focus:ring-green-300 rounded-lg text-white font-semibold transition"
+              aria-label="Back to home page"
+            >
+              Back to Home
+            </button>
+            </div>
+
+            </div>
+            
             <Footer></Footer>
         </div>
     );
