@@ -7,15 +7,15 @@ import { Typewriter } from 'react-simple-typewriter';
 
 const slides = [
   {
-    image: '/assets/g3.jpg',
+    image: '/assets/gg1.jpg',
     buttonText: 'Join Now',
   },
   {
-    image: '/assets/g1.jpg',
+    image: '/assets/gg3.jpg',
     buttonText: 'Learn More',
   },
   {
-    image: '/assets/g4.jpg',
+    image: '/assets/gg4.jpg',
     buttonText: 'Get Started',
   },
 ];
