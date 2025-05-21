@@ -10,8 +10,8 @@ const UpdateTip = () => {
 
   if (!user || !tip) {
     return (
-      <div className="text-center py-10">
-        <p className="text-gray-600">Loading...</p>
+      <div className="flex justify-center items-center py-20">
+        <span className="loading loading-spinner loading-lg text-green-600"></span>
       </div>
     );
   }
@@ -45,41 +45,82 @@ const UpdateTip = () => {
   };
 
   return (
-    <div className="max-w-xl mx-auto p-4">
-      <h2 className="text-2xl font-bold mb-4">Update Tip</h2>
-      <form onSubmit={handleUpdate} className="space-y-4">
-        <input type="text" name="title" placeholder="Title" required className="input w-full" />
-        <input type="text" name="plantType" placeholder="Plant Type/Topic" required className="input w-full" />
+    <div className="max-w-2xl mx-auto mt-12 mb-20 px-6">
+      <h2 className="text-3xl font-bold text-green-700 mb-8 text-center">🌿 Update Garden Tip</h2>
 
-        <select name="difficulty" required className="select w-full">
-          <option disabled selected>Difficulty Level</option>
+      <form onSubmit={handleUpdate} className="space-y-6 bg-white p-6 rounded-xl shadow-md border border-gray-100">
+        <input
+          type="text"
+          name="title"
+          defaultValue={tip.title}
+          placeholder="Title"
+          required
+          className="input input-bordered w-full"
+        />
+
+        <input
+          type="text"
+          name="plantType"
+          defaultValue={tip.plantType}
+          placeholder="Plant Type or Topic"
+          required
+          className="input input-bordered w-full"
+        />
+
+        <select name="difficulty" defaultValue={tip.difficulty} required className="select select-bordered w-full">
+          <option disabled>Difficulty Level</option>
           <option>Easy</option>
           <option>Medium</option>
           <option>Hard</option>
         </select>
 
-        <textarea name="description" placeholder="Description" required className="textarea w-full" rows="4" />
+        <textarea
+          name="description"
+          defaultValue={tip.description}
+          placeholder="Description"
+          required
+          rows="4"
+          className="textarea textarea-bordered w-full"
+        />
 
-        <input type="text" name="imageUrl" placeholder="Image URL" required className="input w-full" />
+        <input
+          type="text"
+          name="imageUrl"
+          defaultValue={tip.imageUrl}
+          placeholder="Image URL"
+          required
+          className="input input-bordered w-full"
+        />
 
-        <select name="category" required className="select w-full">
-          <option disabled selected>Select Category</option>
+        <select name="category" defaultValue={tip.category} required className="select select-bordered w-full">
+          <option disabled>Select Category</option>
           <option>Composting</option>
           <option>Plant Care</option>
           <option>Vertical Gardening</option>
           <option>Soil Health</option>
         </select>
 
-        <select name="availability" required className="select w-full">
-          <option disabled selected>Availability</option>
+        <select name="availability" defaultValue={tip.availability} required className="select select-bordered w-full">
+          <option disabled>Availability</option>
           <option>Public</option>
           <option>Hidden</option>
         </select>
 
-        <input type="text" value={user.displayName || "Anonymous"} readOnly className="input w-full" />
-        <input type="email" value={user.email} readOnly className="input w-full" />
+        <input
+          type="text"
+          value={user.displayName || "Anonymous"}
+          readOnly
+          className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
+        />
 
-        <button className="btn btn-success w-full">Submit Tip</button>
+        <input
+          type="email"
+          value={user.email}
+          readOnly
+          className="input input-bordered w-full bg-gray-100 cursor-not-allowed"
+        />
+
+        <button type="submit" className="btn btn-success w-full mt-4">Update Tip</button>
       </form>
     </div>
   );
