@@ -31,6 +31,7 @@ const TopTrendingTips = () => {
             <div className="p-4 flex flex-col flex-grow">
               <h3 className="text-xl font-semibold mb-2">{tip.title}</h3>
               <p className="text-sm text-gray-500">By {tip.userName}</p>
+              <p className="text-sm text-red-600 font-semibold mt-2">Likes: {tip.totalLiked || 0}</p>
             </div>
           </div>
         ))}
