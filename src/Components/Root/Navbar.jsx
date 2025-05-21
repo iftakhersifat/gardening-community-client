@@ -1,88 +1,137 @@
-import React, { use } from 'react';
-import { Link, NavLink } from 'react-router';
+import React, { useContext } from 'react';
+import { NavLink, Link } from 'react-router';
 import { AuthContext } from '../Firebase/AuthProvider';
 import toast from 'react-hot-toast';
 import ThemeToggle from '../ThemeToggle';
 import { Tooltip } from 'react-tooltip';
-import 'react-tooltip/dist/react-tooltip.css'; // Don't forget the CSS import
+import 'react-tooltip/dist/react-tooltip.css';
 
 const Navbar = () => {
-    const {user, logOut} =use(AuthContext);
-    const handleLogOut=()=>{
-        logOut()
-        .then(()=>{toast.success("Logout successfully!")})
-        .catch(error=>{
-            toast.error(error)})
-    }
-    
-    return (
-        <div className='container mx-auto  flex justify-between items-center mt-10 p-4 md:p-0'>
-            {/* logo & text */}
-            <div className='flex items-center navbar-start'>
-                
-                <div className="dropdown">
-                <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /> </svg>
-                </div>
-                <ul tabIndex={0} className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                <NavLink to="/" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Home</NavLink>
-                <NavLink to="/explore" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Explore Gardeners</NavLink>
+  const { user, logOut } = useContext(AuthContext);
 
-                {/* private */}
-                <NavLink to="/share" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Share a Garden Tip</NavLink>
-                <NavLink to="/tips" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>My Tips</NavLink>
+  const handleLogOut = () => {
+    logOut()
+      .then(() => toast.success('Logout successfully!'))
+      .catch(error => toast.error(error.message));
+  };
 
-                </ul>
-                </div>
+  return (
+    <nav className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0 mt-6">
+      {/* Logo + title */}
+      <div className="flex items-center gap-3">
+        <img src="/assets/logo.png" alt="Logo" className="w-24 lg:-ml-6 md:-ml-9 -ml-3 md:w-28" />
+        <h1 className="hidden md:block text-lg md:text-2xl font-bold text-green-700">
+          Gardening Community & Resource Hub
+        </h1>
+      </div>
 
-                <img className='w-28 -ml-9' src="/assets/logo.png" alt="" />
-                <h1 className='lg:text-2xl md:text-[16px] font-bold -ml-6 md:block hidden'>Gardening Community & Resource Hub</h1>
-            </div>
-            {/* links */}
-            <div className='space-x-4 lg:block hidden'>
-                <NavLink to="/" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Home</NavLink>
-                <NavLink to="/explore" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Explore Gardeners</NavLink>
-                <NavLink to="/browse" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Browse Tips</NavLink>
+      {/* Navigation Links */}
+      <div className="hidden lg:flex space-x-6 font-medium items-center">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition'
+          }
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/explore"
+          className={({ isActive }) =>
+            isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition'
+          }
+        >
+          Explore Gardeners
+        </NavLink>
+        <NavLink
+          to="/browse"
+          className={({ isActive }) =>
+            isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition'
+          }
+        >
+          Browse Tips
+        </NavLink>
+        {user && (
+          <>
+            <NavLink
+              to="/share"
+              className={({ isActive }) =>
+                isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition'
+              }
+            >
+              Share a Tip
+            </NavLink>
+            <NavLink
+              to="/my-tips"
+              className={({ isActive }) =>
+                isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition'
+              }
+            >
+              My Tips
+            </NavLink>
+          </>
+        )}
+      </div>
 
-                {/* private */}
-                {
-                    user && <><NavLink to="/share" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>Share a Garden Tip</NavLink>
-                <NavLink to="/my-tips" className={({isActive})=> isActive ? "text-green-500 underline" : ""}>My Tips</NavLink></>
-                }
-            </div>
-            {/* login button */}
-            <div className='flex gap-4'>
-                {/* <Switcher></Switcher> */}
-                <ThemeToggle></ThemeToggle>
-                {user ? (
+      {/* Dropdown for mobile */}
+      <div className="lg:hidden dropdown dropdown-end">
+        <button tabIndex={0} className="btn btn-ghost">
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <ul
+          tabIndex={0}
+          className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box w-30"
+        >
+          <NavLink to="/" className="mb-2">Home</NavLink>
+          <NavLink to="/explore" className="mb-2">Explore Gardeners</NavLink>
+          <NavLink to="/browse" className="mb-2">Browse Tips</NavLink>
+          {user && (
+            <>
+              <NavLink to="/share" className="mb-2">Share a Tip</NavLink>
+              <NavLink to="/my-tips" className="mb-2">My Tips</NavLink>
+            </>
+          )}
+        </ul>
+      </div>
+
+      {/* User actions */}
+      <div className="flex items-center gap-4">
+        <ThemeToggle />
+        {user ? (
           <>
             <img
               src={user.photoURL || '/assets/user.png'}
               alt={user.displayName || 'User'}
-              className='w-10 h-10 rounded-full cursor-pointer'
-              data-tooltip-id='user-tooltip'
+              className="w-10 h-10 rounded-full border-2 border-green-500 object-cover"
+              data-tooltip-id="user-tooltip"
               data-tooltip-content={user.displayName || 'User'}
-              data-tooltip-place='bottom'
+              data-tooltip-place="bottom"
             />
-            <Tooltip id='user-tooltip' />
+            <Tooltip id="user-tooltip" />
             <button
               onClick={handleLogOut}
-              className='btn bg-red-500 rounded-xl px-6 text-white'
+              className="bg-red-500 text-white px-4 py-1 rounded-xl font-medium hover:bg-red-600 transition"
             >
-              LogOut
+              Log Out
             </button>
           </>
         ) : (
-          <Link to='/login'>
-            <button className='btn bg-green-500 rounded-xl px-6 text-white'>
+          <Link to="/login">
+            <button className="bg-green-600 text-white px-4 py-1 rounded-xl font-medium hover:bg-green-700 transition">
               Login
             </button>
           </Link>
         )}
-            </div>
-            
-        </div>
-    );
+      </div>
+    </nav>
+  );
 };
 
 export default Navbar;
