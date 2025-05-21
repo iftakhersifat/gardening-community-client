@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { use} from 'react';
 import { NavLink, Link } from 'react-router';
 import { AuthContext } from '../Firebase/AuthProvider';
 import toast from 'react-hot-toast';
@@ -7,7 +7,7 @@ import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 
 const Navbar = () => {
-  const { user, logOut } = useContext(AuthContext);
+  const { user, logOut } = use(AuthContext);
 
   const handleLogOut = () => {
     logOut()
@@ -19,7 +19,7 @@ const Navbar = () => {
     <nav className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0 mt-6">
       {/* Logo + title */}
       <div className="flex items-center gap-3">
-        <img src="/assets/logo.png" alt="Logo" className="w-24 lg:-ml-6 md:-ml-9 -ml-3 md:w-28" />
+        <img src="/assets/logo.png" alt="Logo" className="w-24 lg:-ml-7 md:-ml-9 -ml-3 md:w-28" />
         <h1 className="hidden md:block text-lg md:text-2xl font-bold text-green-700">
           Gardening Community & Resource Hub
         </h1>
