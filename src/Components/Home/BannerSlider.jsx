@@ -3,23 +3,28 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Autoplay, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
+import { Typewriter } from 'react-simple-typewriter';
 
 const slides = [
   {
-    message: 'Grow Together',
     image: '/assets/g3.jpg',
     buttonText: 'Join Now',
   },
   {
-    message: 'Urban Gardening Made Simple',
     image: '/assets/g1.jpg',
     buttonText: 'Learn More',
   },
   {
-    message: 'Your Green Journey Starts Here',
     image: '/assets/g4.jpg',
     buttonText: 'Get Started',
   },
+];
+
+// These messages will cycle in the typewriter
+const typewriterMessages = [
+  'Grow Together',
+  'Urban Gardening Made Simple',
+  'Your Green Journey Starts Here',
 ];
 
 export default function BannerSlider() {
@@ -43,8 +48,16 @@ export default function BannerSlider() {
               }}
             >
               <div className="p-6 rounded-lg">
-                <h2 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow">
-                  {slide.message}
+                <h2 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow h-16">
+                  <Typewriter
+                    words={typewriterMessages}
+                    loop={true}
+                    cursor
+                    cursorStyle="|"
+                    typeSpeed={70}
+                    deleteSpeed={50}
+                    delaySpeed={1500}
+                  />
                 </h2>
                 <button className="px-6 py-3 bg-green-700 hover:bg-green-800 rounded-full text-white font-semibold transition">
                   {slide.buttonText}
