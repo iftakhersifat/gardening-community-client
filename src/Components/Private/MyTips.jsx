@@ -59,9 +59,9 @@ const MyTips = () => {
             <tbody>
               {tips.map((tip) => (
                 <tr key={tip._id} className="hover:bg-green-50 border-t">
-                  <td className="py-3 px-4">{tip.title}</td>
-                  <td className="py-3 px-4">{tip.category}</td>
-                  <td className="py-3 px-4">{tip.availability}</td>
+                  <td className="py-3 text-black px-4">{tip.title}</td>
+                  <td className="py-3 text-black px-4">{tip.category}</td>
+                  <td className="py-3 text-black px-4">{tip.availability}</td>
                   <td className="py-3 px-4 text-center space-x-2">
                     <Link
                       to={`/update-tip/${tip._id}`}

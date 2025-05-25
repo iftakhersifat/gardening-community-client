@@ -10,7 +10,8 @@ const SignUp = () => {
     const provider = new GoogleAuthProvider();
 
     // check password
-  const checkPassword = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/;
+  const checkPassword = /^(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+
 
   const [error, setError]= useState('');
     const handleSignup=e=>{
@@ -21,7 +22,7 @@ const SignUp = () => {
         console.log(email, password, fullName, photo);
 
         if(checkPassword.test(password) != true){
-          setError("Must have an Uppercase letter in the password. Must have a Lowercase letter in the password. Length must be at least 6 character");
+          setError("Must have an Uppercase letter in the password. Must have a Lowercase letter in the password. Length must be at least 8 character");
           return;
         } 
 

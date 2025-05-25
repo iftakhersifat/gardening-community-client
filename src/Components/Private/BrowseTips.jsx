@@ -62,8 +62,8 @@ const BrowseTips = () => {
               {tips.length > 0 ? (
                 tips.map((tip) => (
                   <tr key={tip._id} className="border-t hover:bg-green-50 transition">
-                    <td className="px-6 py-4">{tip.title}</td>
-                    <td className="px-6 py-4">{tip.difficulty}</td>
+                    <td className="px-6 text-black py-4">{tip.title}</td>
+                    <td className="px-6 text-black py-4">{tip.difficulty}</td>
                     <td className="px-6 py-4">
                       <img
                         src={tip.imageUrl}

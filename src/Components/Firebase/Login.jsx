@@ -16,11 +16,11 @@ const Login = () => {
 
         // firebase
         LogIn(email, password)
-        .then(result=>{
-          toast.success(result.user)
+        .then(()=>{
+          toast.success("Login Successfully")
           navigate("/")
-        }).then(error=>{
-          toast.error("Login Successfully", error)
+        }).catch(()=>{
+          toast.error("Please provide a valid Email and Password")
         })
     }
 
@@ -35,7 +35,7 @@ const Login = () => {
     })
     } 
     return (
-        <div className="hero  min-h-screen">
+        <div className="hero  min-h-screen ">
         <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="card md:w-[500px] w-[350px] border border-green-200 bg-gray-200 shrink-0 shadow-md">
         <div className="card-body">

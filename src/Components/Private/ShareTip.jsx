@@ -118,13 +118,13 @@ const ShareTip = () => {
           type="text"
           value={user.displayName || 'Anonymous'}
           readOnly
-          className="input input-disabled w-full bg-gray-100"
+          className="input text-black input-disabled w-full bg-gray-100"
         />
         <input
           type="email"
           value={user.email}
           readOnly
-          className="input input-disabled w-full bg-gray-100"
+          className="input text-black input-disabled w-full bg-gray-100"
         />
 
         <button className="btn btn-success w-full text-white text-lg">🚀 Submit Tip</button>
