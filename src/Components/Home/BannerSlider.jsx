@@ -32,7 +32,7 @@ export default function BannerSlider() {
     <div className="mx-auto h-[400px]">
       <Swiper
         modules={[Autoplay, Pagination]}
-        autoplay={{ delay: 3000 }}
+        autoplay={{ delay: 4000 }}
         loop
         pagination={{ clickable: true }}
         className="w-full h-full"
