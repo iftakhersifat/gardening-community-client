@@ -2,9 +2,10 @@ import React, { use} from 'react';
 import { NavLink, Link } from 'react-router';
 import { AuthContext } from '../Firebase/AuthProvider';
 import toast from 'react-hot-toast';
-import ThemeToggle from '../ThemeToggle';
+
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
+import ThemeToggle from '../../ThemeToggle';
 
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
@@ -103,7 +104,7 @@ const Navbar = () => {
 
       {/* User actions */}
       <div className="flex items-center gap-4">
-        <ThemeToggle />
+        <ThemeToggle></ThemeToggle>
         {user ? (
           <>
             <img

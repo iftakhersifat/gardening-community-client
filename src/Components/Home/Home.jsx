@@ -9,6 +9,7 @@ const Home = () => {
     return (
         <div className='container mx-auto mt-10 mb-10'>
             <BannerSlider></BannerSlider>
+            
             <FeaturedGardeners></FeaturedGardeners>
 
             <TopTrendingTips></TopTrendingTips>
