@@ -7,7 +7,7 @@ const BrowseTips = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let url = 'http://localhost:3000/garden-tips/public';
+    let url = 'https://gardening-resource-hub-server.vercel.app/public';
     if (difficulty) {
       url += `?difficulty=${difficulty}`;
     }

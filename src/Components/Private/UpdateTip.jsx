@@ -30,7 +30,7 @@ const UpdateTip = () => {
       availability: form.availability.value,
     };
 
-    fetch(`http://localhost:3000/garden-tips/public/${tip._id}`, {
+    fetch(`https://gardening-resource-hub-server.vercel.app/public/${tip._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedTip),

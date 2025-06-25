@@ -16,7 +16,7 @@ const TipDetails = () => {
   }, [user, navigate]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/garden-tips/public/${id}`)
+    fetch(`https://gardening-resource-hub-server.vercel.app/public/${id}`)
       .then(res => res.json())
       .then(data => setTip(data))
       .catch(err => console.error(err));
@@ -24,7 +24,7 @@ const TipDetails = () => {
 
   const handleLike = async () => {
     try {
-      const res = await fetch(`http://localhost:3000/garden-tips/${id}/like`, {
+      const res = await fetch(`https://gardening-resource-hub-server.vercel.app/${id}/like`, {
         method: 'PATCH',
       });
       if (res.ok) {

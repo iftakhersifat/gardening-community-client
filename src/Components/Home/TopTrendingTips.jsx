@@ -5,7 +5,7 @@ const TopTrendingTips = () => {
   const [tips, setTips] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:3000/garden-tips/public")
+    fetch("https://gardening-resource-hub-server.vercel.app/public")
       .then((res) => res.json())
       .then((data) => {
         setTips(data.slice(0, 6));
