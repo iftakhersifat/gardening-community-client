@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "Lily Green",
+    "age": 32,
+    "gender": "Female",
+    "status": "active",
+    "experiences": "8 years of landscape gardening",
+    "avatar": "/assets/g-one.jpg",
+    "totalSharedTips": 14,
+    "otherInfo": "Specializes in native plants",
+    "location": "Austin, TX"
+  },
+  {
+    "id": 2,
+    "name": "Tom Moss",
+    "age": 40,
+    "gender": "Male",
+    "status": "active",
+    "experiences": "10 years in organic gardening",
+    "avatar": "/assets/g-3.jpg",
+    "totalSharedTips": 20,
+    "otherInfo": "Loves vegetable gardens",
+    "location": "Portland, OR"
+  },
+  {
+    "id": 3,
+    "name": "Sage Bloom",
+    "age": 28,
+    "gender": "Non-binary",
+    "status": "inactive",
+    "experiences": "5 years experience in urban gardening",
+    "avatar": "/assets/in-1.jpg",
+    "totalSharedTips": 7,
+    "otherInfo": "Expert in container plants",
+    "location": "Denver, CO"
+  },
+  {
+    "id": 4,
+    "name": "Rose Leaf",
+    "age": 35,
+    "gender": "Female",
+    "status": "active",
+    "experiences": "12 years in flower gardening",
+    "avatar": "/assets/g-2.jpg",
+    "totalSharedTips": 33,
+    "otherInfo": "Rose specialist",
+    "location": "San Diego, CA"
+  },
+  {
+    "id": 5,
+    "name": "Ivy Sprout",
+    "age": 26,
+    "gender": "Female",
+    "status": "inactive",
+    "experiences": "3 years in garden maintenance",
+    "avatar": "/assets/in-2.jpg",
+    "totalSharedTips": 5,
+    "otherInfo": "Focus on sustainable gardening",
+    "location": "Seattle, WA"
+  },
+  {
+    "id": 6,
+    "name": "Fern Root",
+    "age": 45,
+    "gender": "Male",
+    "status": "active",
+    "experiences": "20 years of expert gardening",
+    "avatar": "/assets/g-4.jpg",
+    "totalSharedTips": 47,
+    "otherInfo": "Specializes in ferns and shade plants",
+    "location": "Boston, MA"
+  },
+  {
+    "id": 7,
+    "name": "Willow Shade",
+    "age": 31,
+    "gender": "Female",
+    "status": "inactive",
+    "experiences": "7 years of garden design",
+    "avatar": "/assets/in-3.jpg",
+    "totalSharedTips": 9,
+    "otherInfo": "Passionate about eco-friendly gardens",
+    "location": "Miami, FL"
+  },
+  {
+    "id": 8,
+    "name": "Daisy Thorn",
+    "age": 29,
+    "gender": "Female",
+    "status": "active",
+    "experiences": "6 years in flower cultivation",
+    "avatar": "/assets/g-5.jpg",
+    "totalSharedTips": 21,
+    "otherInfo": "Floral arrangement enthusiast",
+    "location": "Phoenix, AZ"
+  },
+  {
+    "id": 9,
+    "name": "Basil Vine",
+    "age": 37,
+    "gender": "Male",
+    "status": "inactive",
+    "experiences": "15 years of herb gardening",
+    "avatar": "/assets/in-4.jpg",
+    "totalSharedTips": 25,
+    "otherInfo": "Herb garden expert",
+    "location": "Chicago, IL"
+  },
+  {
+    "id": 10,
+    "name": "Cedar Grove",
+    "age": 42,
+    "gender": "Male",
+    "status": "active",
+    "experiences": "18 years in forestry and garden care",
+    "avatar": "/assets/g-6.jpg",
+    "totalSharedTips": 38,
+    "otherInfo": "Tree care specialist",
+    "location": "Atlanta, GA"
+  }
+]
