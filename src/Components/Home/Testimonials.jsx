@@ -1,6 +1,7 @@
 import React from 'react';
 import { Quote } from 'lucide-react';
 import { Zoom, Fade } from 'react-awesome-reveal';
+import { div } from 'framer-motion/client';
 
 const testimonials = [
   {
@@ -25,12 +26,13 @@ const testimonials = [
 
 export default function Testimonials() {
   return (
-    <section className="bg-green-50 mt-10 py-14 px-4 rounded-xl">
+    <div className='px-4'>
+      <section className="bg-green-50 mt-10 py-14 px-4 rounded-xl">
       <div className="max-w-5xl mx-auto text-center">
         {/* Animated heading */}
         <Zoom triggerOnce={false} duration={1000}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-10 flex items-center justify-center gap-2 text-green-800">
-            <Quote className="w-6 h-6 text-green-600" />
+          <h2 className="text-2xl md:text-4xl font-bold mb-10 flex items-center justify-center gap-2 text-green-800">
+            <Quote className="md:w-6 w-4 md:h-6 h-4 text-green-600" />
             What Gardeners Are Saying
           </h2>
         </Zoom>
@@ -40,7 +42,7 @@ export default function Testimonials() {
           cascade
           damping={0.15}
           direction="up"
-          triggerOnce={false}
+          triggerOnce={true}
           duration={1200}
         >
           <div className="grid md:grid-cols-3 gap-6">
@@ -58,5 +60,6 @@ export default function Testimonials() {
         </Fade>
       </div>
     </section>
+    </div>
   );
 }

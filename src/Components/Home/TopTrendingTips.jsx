@@ -14,7 +14,7 @@ const TopTrendingTips = () => {
   }, []);
 
   return (
-    <section className="container mx-auto px-4 py-12">
+    <section className="container mx-auto px-4 py-10">
       {/* Title with animation */}
       <Fade direction="up" triggerOnce={false} duration={2000}>
         <h2 className="text-4xl font-bold text-center text-green-600 mb-10 tracking-tight">
@@ -26,7 +26,7 @@ const TopTrendingTips = () => {
       </Fade>
 
       {/* Cards grid with animation */}
-      <Fade direction="up" cascade damping={0.1} triggerOnce={false} duration={1000}>
+      <Fade direction="up" cascade damping={0.1} triggerOnce={true} duration={1000}>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {tips.map((tip, i) => (
             <div

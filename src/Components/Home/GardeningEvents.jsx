@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapPin, CalendarDays, Users } from 'lucide-react';
 import { Fade, Zoom } from 'react-awesome-reveal';
+import { div } from 'framer-motion/client';
 
 const events = [
   {
@@ -28,7 +29,8 @@ const events = [
 
 export default function GardeningEvents() {
   return (
-    <section className="py-14 bg-green-50 rounded-xl px-4 mt-10">
+    <div className='px-4'>
+      <div className=" bg-green-50 rounded-xl px-5 py-10 mt-10">
       <div className="max-w-6xl mx-auto">
 
         {/* Animated heading  */}
@@ -41,7 +43,7 @@ export default function GardeningEvents() {
         {/* Event cards animation */}
         <div className="grid md:grid-cols-3 gap-6">
           {events.map((event, index) => (
-            <Fade direction="up" triggerOnce={false} duration={800} delay={index * 100} key={index}>
+            <Fade direction="up" triggerOnce={true} duration={800} delay={index * 100} key={index}>
               <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
                 <img src={event.image} alt={event.title} className="w-full h-48 object-cover" />
                 <div className="p-5">
@@ -64,6 +66,7 @@ export default function GardeningEvents() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
+    </div>
   );
 }
