@@ -7,7 +7,7 @@ const BrowseTips = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    let url = 'https://gardening-resource-hub-server.vercel.app/garden-tips';
+    let url = 'https://gardening-resource-hub-server.vercel.app/public';
     if (difficulty) {
       url += `?difficulty=${difficulty}`;
     }
@@ -27,7 +27,7 @@ const BrowseTips = () => {
 
   return (
     <div className="container mx-auto px-4 md:px-8 mt-10 mb-16">
-      <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">Browse Garden Tips</h2>
+      <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">🌿 Browse Garden Tips</h2>
 
       <div className="flex justify-center mb-6">
         <label className="mr-3 font-semibold text-green-900 text-lg">Filter by Difficulty:</label>
@@ -74,7 +74,7 @@ const BrowseTips = () => {
                     <td className="px-6 py-4 text-center">
                       <Link to={`/tip-details/${tip._id}`}>
                         <button className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700 transition">
-                           See More
+                          👁️ See More
                         </button>
                       </Link>
                     </td>

@@ -2,11 +2,18 @@ import React, { use} from 'react';
 import { NavLink, Link } from 'react-router';
 import { AuthContext } from '../Firebase/AuthProvider';
 import toast from 'react-hot-toast';
+<<<<<<< HEAD
+=======
+
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
 import { Tooltip } from 'react-tooltip';
 import 'react-tooltip/dist/react-tooltip.css';
 import ThemeToggle from '../../ThemeToggle';
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
 const Navbar = () => {
   const { user, logOut } = use(AuthContext);
 
@@ -17,15 +24,26 @@ const Navbar = () => {
   };
 
   return (
+<<<<<<< HEAD
     <nav className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0 mt-6 ">
       {/* Logo + title */}
       <div className="flex items-center gap-3">
         <img src="/assets/logo.png" alt="Logo" className="w-24 lg:-ml-7 md:-ml-9 -ml-3 md:w-28" />
         <h1 className="hidden md:block text-lg md:text-2xl font-bold text-green-700">Gardening Community & Resource Hub</h1>
+=======
+    <nav className="container mx-auto flex justify-between items-center py-4 px-4 md:px-0 mt-6">
+      {/* Logo + title */}
+      <div className="flex items-center gap-3">
+        <img src="/assets/logo.png" alt="Logo" className="w-24 lg:-ml-7 md:-ml-9 -ml-3 md:w-28" />
+        <h1 className="hidden md:block text-lg md:text-2xl font-bold text-green-700">
+          Gardening Community & Resource Hub
+        </h1>
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
       </div>
 
       {/* Navigation Links */}
       <div className="hidden lg:flex space-x-6 font-medium items-center">
+<<<<<<< HEAD
         <NavLink to="/" className={({ isActive }) =>   isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition'}>Home</NavLink>
 
         <NavLink to="/explore" className={({ isActive }) =>   isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition' }>Explore Gardeners</NavLink>
@@ -36,6 +54,50 @@ const Navbar = () => {
             <NavLink to="/share" className={({ isActive }) =>   isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition' }>Share a Tip</NavLink>
 
             <NavLink to="/my-tips" className={({ isActive }) =>   isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition' }>My Tips</NavLink>
+=======
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition'
+          }
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/explore"
+          className={({ isActive }) =>
+            isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition'
+          }
+        >
+          Explore Gardeners
+        </NavLink>
+        <NavLink
+          to="/browse"
+          className={({ isActive }) =>
+            isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition'
+          }
+        >
+          Browse Tips
+        </NavLink>
+        {user && (
+          <>
+            <NavLink
+              to="/share"
+              className={({ isActive }) =>
+                isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition'
+              }
+            >
+              Share a Tip
+            </NavLink>
+            <NavLink
+              to="/my-tips"
+              className={({ isActive }) =>
+                isActive ? 'text-green-600 underline' : 'hover:text-green-500 transition'
+              }
+            >
+              My Tips
+            </NavLink>
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
           </>
         )}
       </div>
@@ -43,11 +105,27 @@ const Navbar = () => {
       {/* Dropdown for mobile */}
       <div className="lg:hidden dropdown dropdown-end">
         <button tabIndex={0} className="btn btn-ghost">
+<<<<<<< HEAD
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
           </svg>
         </button>
         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box w-30">
+=======
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+        </button>
+        <ul
+          tabIndex={0}
+          className="menu menu-sm dropdown-content mt-3 z-[1] p-4 shadow bg-base-100 rounded-box w-30"
+        >
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
           <NavLink to="/" className="mb-2">Home</NavLink>
           <NavLink to="/explore" className="mb-2">Explore Gardeners</NavLink>
           <NavLink to="/browse" className="mb-2">Browse Tips</NavLink>
@@ -65,13 +143,28 @@ const Navbar = () => {
         <ThemeToggle></ThemeToggle>
         {user ? (
           <>
+<<<<<<< HEAD
             <img src={user.photoURL || '/assets/user.png'} alt={user.displayName || 'User'} className="w-10 h-10 rounded-full border-2 border-green-500 object-cover"
+=======
+            <img
+              src={user.photoURL || '/assets/user.png'}
+              alt={user.displayName || 'User'}
+              className="w-10 h-10 rounded-full border-2 border-green-500 object-cover"
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
               data-tooltip-id="user-tooltip"
               data-tooltip-content={user.displayName || 'User'}
               data-tooltip-place="bottom"
             />
             <Tooltip id="user-tooltip" />
+<<<<<<< HEAD
             <button onClick={handleLogOut} className="bg-red-500 text-white px-4 py-1 rounded-xl font-medium hover:bg-red-600 transition">Log Out
+=======
+            <button
+              onClick={handleLogOut}
+              className="bg-red-500 text-white px-4 py-1 rounded-xl font-medium hover:bg-red-600 transition"
+            >
+              Log Out
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
             </button>
           </>
         ) : (

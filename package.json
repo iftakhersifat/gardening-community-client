@@ -1,5 +1,9 @@
 {
+<<<<<<< HEAD
   "name": "gardening-resource-hub-client",
+=======
+  "name": "gardening-community-client",
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -10,20 +14,35 @@
     "preview": "vite preview"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@tailwindcss/vite": "^4.1.7",
     "firebase": "^11.8.1",
+=======
+    "@lottiefiles/react-lottie-player": "^3.6.0",
+    "@tailwindcss/vite": "^4.1.7",
+    "firebase": "^11.7.3",
+    "framer-motion": "^12.12.1",
+    "lottie-react": "^2.4.1",
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
     "lucide-react": "^0.511.0",
     "react": "^19.1.0",
     "react-awesome-reveal": "^4.3.1",
     "react-dom": "^19.1.0",
     "react-hot-toast": "^2.5.2",
+<<<<<<< HEAD
     "react-icons": "^5.5.0",
+=======
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
     "react-router": "^7.6.0",
     "react-simple-typewriter": "^5.0.1",
     "react-toggle-dark-mode": "^1.1.1",
     "react-tooltip": "^5.28.1",
     "sweetalert2": "^11.21.2",
+<<<<<<< HEAD
     "swiper": "^11.2.7"
+=======
+    "swiper": "^11.2.6"
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",
@@ -31,7 +50,11 @@
     "@types/react-dom": "^19.1.2",
     "@vitejs/plugin-react": "^4.4.1",
     "autoprefixer": "^10.4.21",
+<<<<<<< HEAD
     "daisyui": "^5.0.37",
+=======
+    "daisyui": "^5.0.35",
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
     "eslint": "^9.25.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.19",

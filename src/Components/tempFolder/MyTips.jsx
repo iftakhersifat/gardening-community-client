@@ -9,19 +9,11 @@ const MyTips = () => {
 
   useEffect(() => {
     if (user?.email) {
-      fetch(`https://gardening-resource-hub-server.vercel.app/my-tips?email=${user.email}`)
+      fetch(`http://localhost:3000/my-tips?email=${user.email}`)
         .then(res => res.json())
         .then(data => setTips(data));
     }
   }, [user]);
-
-  if (!user) {
-    return (
-      <div className="flex justify-center py-10">
-          <span className="loading loading-spinner loading-lg text-green-600"></span>
-        </div>
-    );
-  }
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -34,7 +26,7 @@ const MyTips = () => {
       confirmButtonText: 'Yes, delete it!',
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`https://gardening-resource-hub-server.vercel.app/garden-tips/${id}`, {
+        fetch(`https://gardening-resource-hub-server.vercel.app/${id}`, {
           method: 'DELETE',
         })
           .then((res) => res.json())
@@ -58,10 +50,10 @@ const MyTips = () => {
           <table className="table w-full text-sm">
             <thead className="bg-green-100 text-gray-700">
               <tr>
-                <th className="py-3 px-4 text-left">Title</th>
-                <th className="py-3 px-4 text-left">Category</th>
-                <th className="py-3 px-4 text-left">Availability</th>
-                <th className="py-3 px-4 text-center">Actions</th>
+                <th className="py-3 px-4 text-left">🌿 Title</th>
+                <th className="py-3 px-4 text-left">📁 Category</th>
+                <th className="py-3 px-4 text-left">🌐 Availability</th>
+                <th className="py-3 px-4 text-center">⚙️ Actions</th>
               </tr>
             </thead>
             <tbody>

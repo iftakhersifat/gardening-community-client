@@ -30,7 +30,7 @@ const UpdateTip = () => {
       availability: form.availability.value,
     };
 
-    fetch(`https://gardening-resource-hub-server.vercel.app/garden-tips/${tip._id}`, {
+    fetch(`https://gardening-resource-hub-server.vercel.app/public/${tip._id}`, {
       method: 'PUT',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(updatedTip),
@@ -110,7 +110,7 @@ const UpdateTip = () => {
           type="text"
           value={user.displayName || "Anonymous"}
           readOnly
-          className="input text-black input-bordered w-full bg-gray-100 cursor-not-allowed"
+          className="input  text-black input-bordered w-full bg-gray-100 cursor-not-allowed"
         />
 
         <input

@@ -2,7 +2,6 @@ import { useNavigate, useParams } from 'react-router';
 import { use, useEffect, useState } from 'react';
 import toast from 'react-hot-toast';
 import { AuthContext } from '../Firebase/AuthProvider';
-import { FaChartBar, FaEdit, FaFolder, FaGlobe, FaHeart, FaSeedling, FaUser } from 'react-icons/fa';
 
 const TipDetails = () => {
   const {user} = use(AuthContext)
@@ -17,7 +16,7 @@ const TipDetails = () => {
   }, [user, navigate]);
 
   useEffect(() => {
-    fetch(`https://gardening-resource-hub-server.vercel.app/garden-tips/${id}`)
+    fetch(`https://gardening-resource-hub-server.vercel.app/public/${id}`)
       .then(res => res.json())
       .then(data => setTip(data))
       .catch(err => console.error(err));
@@ -25,7 +24,7 @@ const TipDetails = () => {
 
   const handleLike = async () => {
     try {
-      const res = await fetch(`https://gardening-resource-hub-server.vercel.app/garden-tips/${id}/like`, {
+      const res = await fetch(`https://gardening-resource-hub-server.vercel.app/${id}/like`, {
         method: 'PATCH',
       });
       if (res.ok) {
@@ -33,7 +32,7 @@ const TipDetails = () => {
           ...prev,
           totalLiked: (prev.totalLiked || 0) + 1,
         }));
-        toast.success('Thanks for the like!');
+        toast.success('Thanks for the like! 🌿');
       } else {
         toast.error('Failed to like the tip.');
       }
@@ -64,27 +63,25 @@ const TipDetails = () => {
         />
 
         <div className="space-y-2 text-gray-700">
-        <p><span className="font-semibold text-green-600"><FaSeedling className="inline mr-1" /> Plant Type/Topic:</span> {tip.plantType}</p>
-        <p><span className="font-semibold text-green-600"><FaChartBar className="inline mr-1 text-purple-500" /> Difficulty:</span> {tip.difficulty}</p>
-        <p><span className="font-semibold text-green-600"><FaFolder className="inline mr-1 text-yellow-500" /> Category:</span> {tip.category}</p>
-        <p><span className="font-semibold text-green-600"><FaGlobe className="inline mr-1 text-blue-500" /> Availability:</span> {tip.availability}</p>
-        <p><span className="font-semibold text-green-600"><FaUser className="inline mr-1 text-pink-500" /> Submitted by:</span> {tip.userName} ({tip.userEmail})</p>
+          <p><span className="font-semibold text-green-600">🌱 Plant Type/Topic:</span> {tip.plantType}</p>
+          <p><span className="font-semibold text-green-600">📊 Difficulty:</span> {tip.difficulty}</p>
+          <p><span className="font-semibold text-green-600">📁 Category:</span> {tip.category}</p>
+          <p><span className="font-semibold text-green-600">🌐 Availability:</span> {tip.availability}</p>
+          <p><span className="font-semibold text-green-600">👤 Submitted by:</span> {tip.userName} ({tip.userEmail})</p>
         </div>
 
         <div className="mt-6">
-        <h3 className="text-xl font-semibold mb-2 text-gray-800">
-        <FaEdit className="inline mr-2 text-orange-500" /> Description:
-        </h3>
-        <p className="text-gray-600">{tip.description}</p>
+          <h3 className="text-xl font-semibold mb-2 text-gray-800">📝 Description:</h3>
+          <p className="text-gray-600">{tip.description}</p>
         </div>
 
-        <div className="text-center mt-8 flex justify-center items-center ">
-        <button
-          onClick={handleLike}
-          className="px-6 py-2 bg-red-100 hover:bg-red-200 text-red-600 font-medium rounded-full shadow-sm transition duration-200 flex items-center justify-center gap-2">
-        <FaHeart /> Like ({tip.totalLiked || 0})
-        </button>
-
+        <div className="text-center mt-8">
+          <button
+            onClick={handleLike}
+            className="px-6 py-2 bg-red-100 hover:bg-red-200 text-red-600 font-medium rounded-full shadow-sm transition duration-200"
+          >
+            ❤️ Like ({tip.totalLiked || 0})
+          </button>
         </div>
       </div>: ""
         

@@ -9,9 +9,9 @@ const ShareTip = () => {
 
   if (!user) {
     return (
-      <div className="flex justify-center py-10">
-          <span className="loading loading-spinner loading-lg text-green-600"></span>
-        </div>
+      <div className="text-center py-10">
+        <p className="text-gray-600">Loading user information...</p>
+      </div>
     );
   }
 
@@ -31,14 +31,14 @@ const ShareTip = () => {
     };
 
     try {
-      const res = await fetch('https://gardening-resource-hub-server.vercel.app/garden-tips', {
+      const res = await fetch('http://localhost:3000/garden-tips', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(tip),
       });
 
       if (res.ok) {
-        toast.success('Garden tip shared successfully!');
+        toast.success('🌱 Garden tip shared successfully!');
         form.reset();
         navigate('/my-tips');
       } else {
@@ -52,13 +52,13 @@ const ShareTip = () => {
 
   return (
     <div className="max-w-2xl mx-auto px-6 py-10 bg-white shadow-lg rounded-xl border border-green-100">
-      <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">Share a Garden Tip</h2>
+      <h2 className="text-3xl font-bold text-green-700 mb-6 text-center">➕ Share a Garden Tip</h2>
 
       <form onSubmit={handleSubmit} className="space-y-5">
         <input
           type="text"
           name="title"
-          placeholder="Tip Title"
+          placeholder="🌿 Tip Title"
           required
           className="input input-bordered w-full"
         />
@@ -66,14 +66,14 @@ const ShareTip = () => {
         <input
           type="text"
           name="plantType"
-          placeholder="Plant Type or Topic"
+          placeholder="🌱 Plant Type or Topic"
           required
           className="input input-bordered w-full"
         />
 
         <select name="difficulty" required className="select select-bordered w-full">
           <option disabled selected>
-            Difficulty Level
+            🚦 Difficulty Level
           </option>
           <option>Easy</option>
           <option>Medium</option>
@@ -82,7 +82,7 @@ const ShareTip = () => {
 
         <textarea
           name="description"
-          placeholder="Describe your tip..."
+          placeholder="📝 Describe your tip..."
           required
           rows="4"
           className="textarea textarea-bordered w-full"
@@ -91,14 +91,14 @@ const ShareTip = () => {
         <input
           type="text"
           name="imageUrl"
-          placeholder="Image URL"
+          placeholder="🖼️ Image URL"
           required
           className="input input-bordered w-full"
         />
 
         <select name="category" required className="select select-bordered w-full">
           <option disabled selected>
-            Select Category
+            📁 Select Category
           </option>
           <option>Composting</option>
           <option>Plant Care</option>
@@ -108,7 +108,7 @@ const ShareTip = () => {
 
         <select name="availability" required className="select select-bordered w-full">
           <option disabled selected>
-            Visibility
+            🔒 Visibility
           </option>
           <option>Public</option>
           <option>Hidden</option>
@@ -127,7 +127,7 @@ const ShareTip = () => {
           className="input text-black input-disabled w-full bg-gray-100"
         />
 
-        <button className="btn btn-success w-full text-white text-lg">Submit Tip</button>
+        <button className="btn btn-success w-full text-white text-lg">🚀 Submit Tip</button>
       </form>
     </div>
   );

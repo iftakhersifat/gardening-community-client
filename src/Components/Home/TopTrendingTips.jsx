@@ -1,12 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Fade } from "react-awesome-reveal";
+<<<<<<< HEAD
 import { FaHeart } from "react-icons/fa";
+=======
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
 
 const TopTrendingTips = () => {
   const [tips, setTips] = useState([]);
 
   useEffect(() => {
+<<<<<<< HEAD
     fetch("https://gardening-resource-hub-server.vercel.app/garden-tips")
+=======
+    fetch("https://gardening-resource-hub-server.vercel.app/public")
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
       .then((res) => res.json())
       .then((data) => {
         setTips(data.slice(0, 6));
@@ -18,7 +25,11 @@ const TopTrendingTips = () => {
       {/* Title with animation */}
       <Fade direction="up" triggerOnce={false} duration={2000}>
         <h2 className="text-4xl font-bold text-center text-green-600 mb-10 tracking-tight">
+<<<<<<< HEAD
           Top Trending Garden Tips
+=======
+          🌿 Top Trending Garden Tips
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
         </h2>
         <p className="text-center text-gray-500 max-w-2xl mx-auto mb-12">
           Explore the most liked tips shared by passionate gardeners around the community.
@@ -48,8 +59,13 @@ const TopTrendingTips = () => {
                   By <span className="font-medium">{tip.userName}</span>
                 </p>
                 <div className="mt-auto flex justify-between items-center pt-3 border-t border-gray-200 dark:border-gray-700">
+<<<<<<< HEAD
                   <span className="text-sm text-red-600 font-semibold text-green-600 flex items-center gap-2">
                     <FaHeart /> {tip.totalLiked || 0} Likes
+=======
+                  <span className="text-sm font-semibold text-green-600">
+                     {tip.totalLiked || 0} Likes
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
                   </span>
                 </div>
               </div>

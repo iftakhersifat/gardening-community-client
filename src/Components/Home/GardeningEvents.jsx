@@ -31,6 +31,7 @@ export default function GardeningEvents() {
     <section className="py-14 bg-green-50 rounded-xl px-4 mt-10">
       <div className="max-w-6xl mx-auto">
 
+<<<<<<< HEAD
         {/* Animated heading  */}
         <Zoom triggerOnce={false} duration={1200}>
           <h2 className="text-4xl font-bold text-center mb-2 text-green-800">Join a Local Gardening Event</h2>
@@ -42,6 +43,28 @@ export default function GardeningEvents() {
         <div className="grid md:grid-cols-3 gap-6">
           {events.map((event, index) => (
             <Fade direction="up" triggerOnce={false} duration={800} delay={index * 100} key={index}>
+=======
+        {/* Animated heading and subtitle */}
+        <Zoom triggerOnce={false} duration={1200}>
+          <h2 className="text-4xl font-bold text-center mb-2 text-green-800">
+            🌿 Join a Local Gardening Event
+          </h2>
+          <p className="text-center text-gray-600 text-lg mb-10 max-w-2xl mx-auto">
+            Explore upcoming gardening events in your area. Connect, learn, and grow with your community!
+          </p>
+        </Zoom>
+
+        {/* Event cards with fade animation */}
+        <div className="grid md:grid-cols-3 gap-6">
+          {events.map((event, index) => (
+            <Fade
+              direction="up"
+              triggerOnce={false}
+              duration={800}
+              delay={index * 100}
+              key={index}
+            >
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
               <div className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition duration-300 transform hover:-translate-y-1">
                 <img src={event.image} alt={event.title} className="w-full h-48 object-cover" />
                 <div className="p-5">

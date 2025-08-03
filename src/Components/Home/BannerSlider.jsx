@@ -29,10 +29,17 @@ const typewriterMessages = [
 
 export default function BannerSlider() {
   return (
+<<<<<<< HEAD
     <div className="mx-auto h-[400px] ">
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: 3000 }}
+=======
+    <div className="mx-auto h-[400px]">
+      <Swiper
+        modules={[Autoplay, Pagination]}
+        autoplay={{ delay: 4000 }}
+>>>>>>> f47b951601310ca28955233f7c1ecf9df02464e8
         loop
         pagination={{ clickable: true }}
         className="w-full h-full"
