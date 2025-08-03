@@ -29,7 +29,7 @@ const typewriterMessages = [
 
 export default function BannerSlider() {
   return (
-    <div className="mx-auto h-[400px] ">
+    <div className="mx-auto h-[400px] px-4 py-10">
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: 3000 }}
@@ -48,7 +48,7 @@ export default function BannerSlider() {
               }}
             >
               <div className="p-6 rounded-lg">
-                <h2 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow h-16">
+                <h2 className="text-2xl md:text-4xl lg:text-5xl font-bold mb-4 drop-shadow h-16">
                   <Typewriter
                     words={typewriterMessages}
                     loop={true}
